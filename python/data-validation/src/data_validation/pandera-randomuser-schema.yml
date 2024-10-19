@@ -1,0 +1,409 @@
+schema_type: dataframe
+version: 0.20.4
+columns:
+  gender:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks:
+      isin:
+      - male
+      - female
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  email:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks:
+      str_matches: (^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  phone:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks:
+      str_matches: ^[\+]?[(]?[0-9]{2,4}[)]?[-\s\.]?[0-9]{3,4}[-\s\.]?[0-9]{3,6}$
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  cell:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks:
+      str_matches: ^[\+]?[(]?[0-9]{2,4}[)]?[-\s\.]?[0-9]{3,4}[-\s\.]?[0-9]{3,6}$
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  nat:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks:
+      str_length:
+        min_value: 2
+        max_value: 2
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  name_title:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks:
+      isin:
+      - Mr
+      - Mrs
+      - Ms
+      - Miss
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  name_first:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  name_last:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  location_city:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  location_state:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  location_country:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  location_postcode:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  login_uuid:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  login_username:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  login_password:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  login_salt:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  login_md5:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  login_sha1:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  login_sha256:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  dob_date:
+    title: null
+    description: null
+    dtype: datetime64[ns, UTC]
+    nullable: false
+    checks:
+      in_range:
+        min_value: '1940-01-01 00:00:00'
+        max_value: '2030-01-01 00:00:00'
+        include_min: true
+        include_max: true
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  dob_age:
+    title: null
+    description: null
+    dtype: int64
+    nullable: false
+    checks:
+      in_range:
+        min_value: 0
+        max_value: 100
+        include_min: true
+        include_max: true
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  registered_date:
+    title: null
+    description: null
+    dtype: datetime64[ns, UTC]
+    nullable: false
+    checks:
+      in_range:
+        min_value: '1990-01-01 00:00:00'
+        max_value: '2030-01-01 00:00:00'
+        include_min: true
+        include_max: true
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  registered_age:
+    title: null
+    description: null
+    dtype: int64
+    nullable: false
+    checks:
+      in_range:
+        min_value: 0
+        max_value: 100
+        include_min: true
+        include_max: true
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  id_name:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  id_value:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  picture_large:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks:
+      str_matches: https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  picture_medium:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks:
+      str_matches: https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  picture_thumbnail:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks:
+      str_matches: https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  location_street_number:
+    title: null
+    description: null
+    dtype: int64
+    nullable: false
+    checks:
+      in_range:
+        min_value: 1
+        max_value: 99999
+        include_min: true
+        include_max: true
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  location_street_name:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  location_coordinates_latitude:
+    title: null
+    description: null
+    dtype: float64
+    nullable: false
+    checks:
+      in_range:
+        min_value: -90.0
+        max_value: 90.0
+        include_min: true
+        include_max: true
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  location_coordinates_longitude:
+    title: null
+    description: null
+    dtype: float64
+    nullable: false
+    checks:
+      in_range:
+        min_value: -180.0
+        max_value: 180.0
+        include_min: true
+        include_max: true
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  location_timezone_offset:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks:
+      str_matches: ^([+|-])?[0-9]{1,2}:[0-9]{2}$
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+  location_timezone_description:
+    title: null
+    description: null
+    dtype: str
+    nullable: false
+    checks: null
+    unique: false
+    coerce: false
+    required: true
+    regex: false
+checks: null
+index: null
+dtype: null
+coerce: false
+strict: false
+name: null
+ordered: false
+unique: null
+report_duplicates: all
+unique_column_names: false
+add_missing_columns: false
+title: null
+description: null

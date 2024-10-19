@@ -67,7 +67,7 @@ def write_validation_schema(yaml_name: str):
             "phone": pa.Column(str, pa.Check.str_matches(phone_no_regex)),
             "cell": pa.Column(str, pa.Check.str_matches(phone_no_regex)),
             "nat": pa.Column(str, pa.Check.str_length(min_value=2, max_value=2)),
-            "name_title": pa.Column(str, pa.Check.isin(["Mr", "Mrs", "Ms", "Miss"])),
+            "name_title": pa.Column(str, pa.Check.isin(["Mr", "Mrs", "Ms", "Miss", "Mademoiselle", "Madame", "Monsieur"])),
             "name_first": pa.Column(str),
             "name_last": pa.Column(str),
             "location_city": pa.Column(str),
@@ -86,7 +86,7 @@ def write_validation_schema(yaml_name: str):
             "registered_date": pa.Column(datetime, pa.Check.in_range(datetime(1990, 1, 1, tzinfo=UTC), datetime(2030, 1, 1, tzinfo=UTC))),
             "registered_age": pa.Column(int, pa.Check.in_range(0, 100)),
             "id_name": pa.Column(str),
-            "id_value": pa.Column(str),
+            "id_value": pa.Column(str, nullable=True),
             "picture_large": pa.Column(str, pa.Check.str_matches(url_regex)),
             "picture_medium": pa.Column(str, pa.Check.str_matches(url_regex)),
             "picture_thumbnail": pa.Column(str, pa.Check.str_matches(url_regex)),
@@ -110,14 +110,12 @@ def write_validation_schema(yaml_name: str):
 
 
 def validate_pandas_df(df: pd.DataFrame, schema_yaml_filename: str):
-    # print(df.columns)
     schema = pandera.io.from_yaml(schema_yaml_filename)
-
     try:
         schema.validate(df, lazy=True)
     except pa.errors.SchemaErrors as exc:
         print("Schema errors and failure cases:")
-        print(exc.failure_cases)
+        print(exc.failure_cases.to_string())
 
 
 if __name__ == "__main__":

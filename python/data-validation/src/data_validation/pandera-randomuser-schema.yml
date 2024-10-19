@@ -71,6 +71,9 @@ columns:
       - Mrs
       - Ms
       - Miss
+      - Mademoiselle
+      - Madame
+      - Monsieur
     unique: false
     coerce: false
     required: true
@@ -279,7 +282,7 @@ columns:
     title: null
     description: null
     dtype: str
-    nullable: false
+    nullable: true
     checks: null
     unique: false
     coerce: false

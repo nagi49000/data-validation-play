@@ -3,7 +3,8 @@ import ndjson
 from pydantic import (
     BaseModel,
     ConfigDict,
-    field_validator
+    field_validator,
+    ValidationError
 )
 from datetime import datetime, UTC
 
@@ -222,8 +223,11 @@ class Record(BaseModel):
 def pydantic_check_data(filename: str):
     with open(filename, "rt") as f:
         raw_records = ndjson.load(f)
-    records = [Record(**x) for x in raw_records]
-    print(records[0])
+    for raw_record in raw_records:
+        try:
+            _ = Record(**raw_record)
+        except ValidationError as exc:
+            print(exc)
 
 
 if __name__ == "__main__":

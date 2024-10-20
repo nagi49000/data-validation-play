@@ -209,7 +209,6 @@ class Record(BaseModel):
         else:
             raise ValueError("failed regex check")
 
-    """
     @field_validator("phone", "cell")
     @classmethod
     def phone_cell_obeys_regex(cls, v: str) -> str:
@@ -217,18 +216,18 @@ class Record(BaseModel):
             return v
         else:
             raise ValueError("failed regex check")
-    """
 
 
 def pydantic_check_data(filename: str):
     with open(filename, "rt") as f:
         raw_records = ndjson.load(f)
-    for raw_record in raw_records:
+    for ctr, raw_record in enumerate(raw_records):
         try:
             _ = Record(**raw_record)
         except ValidationError as exc:
+            print(f"on record {ctr}")
             print(exc)
 
 
 if __name__ == "__main__":
-    pydantic_check_data("records_3.ndjson")
+    pydantic_check_data("records.ndjson")

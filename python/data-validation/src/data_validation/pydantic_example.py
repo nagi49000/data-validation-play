@@ -1,5 +1,5 @@
 import ndjson
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from datetime import datetime
 
 
@@ -19,10 +19,11 @@ class Timezone(BaseModel):
 
 
 class Location(BaseModel):
+    model_config = ConfigDict(coerce_numbers_to_str=True)
     city: str
     state: str
     country: str
-    postcode: str | int  # TODO coerce to str
+    postcode: str  # sometimes is an int in the data
     street: Street
     coordinates: Coordinates
     timezone: Timezone
